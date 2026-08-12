@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Francesko</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .hotel-banner {
+      text-align: center;
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+
+    .hotel-banner img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .hotel-details {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .hotel-details h1 {
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    .hotel-details p {
+      margin: 0.5rem 0;
+    }
+
+    .booking-section {
+      margin-top: 2rem;
+    }
+
+    .booking-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ecf0f1;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      background: #27ae60;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #219150;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    .rating-summary {
+         max-width: 800px;
+         margin: 2rem auto;
+         background: #fff;
+         padding: 2rem;
+         border-radius: 10px;
+         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .rating-summary h2 {
+         color: #2c3e50;
+         margin-bottom: 1rem;
+    }
+
+    .rating-summary ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .rating-summary li {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+    }
+
+    .reviews-section {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .reviews-section h2 {
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+    }
+
+    .review {
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+    }
+
+    .review:last-child {
+      border-bottom: none;
+    }
+
+    .review h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #34495e;
+    }
+
+    .review-title {
+      font-weight: bold;
+      margin: 0.5rem 0;
+      color: #27ae60;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hotel Francesko</h1>
+  </header>
+
+  <div class="hotel-banner">
+    <!-- Replace with your actual image file -->
+    <img src="image4.jpg" alt="Hotel Francesko Room">
+  </div>
+
+  <div class="hotel-details">
+    <h1>Hotel Francesko</h1>
+    <p>⭐ 4.6 (606 reviews)</p>
+    <p>📍 Location: San Jose City</p>
+    <p>Elegant rooms with modern design, offering comfort and convenience for both leisure and business travelers.</p>
+
+    <div class="booking-section">
+      <h2>View prices for your travel dates</h2>
+      <p>Check In: Jul 26 | Check Out: Jul 27 | 1 Room, 2 Guests</p>
+
+      <div class="booking-option">
+        <span>Booking.com</span>
+        <span>₱3,639.24 (Fully refundable before Jul 18)</span>
+        <a href="https://www.booking.com/searchresults.en-gb.html?aid=7344277&label=metatripad-link-dmetaph-hotel-1665224_xqdz-dd75f78f63affeb89ebfe8e94b80fa8d_los-01_bw-012_tod-3_dom-com_curr-USD_gst-02_nrm-01_clkid-21f02052-6c58-4833-a12f-3386cd88e932_aud-0000_mbl-L_pd-_sc-2_defdate-1_spo-0_clksrc-0_mcid-33&no_rooms=1&group_adults=2&group_children=0&redirected=1&city=-2450235&highlighted_hotels=1665224&hlrd=with_dates&source=hotel&checkin=2026-07-26&checkout=2026-07-27&keep_landing=1&sid=b5620e5e2c46164f1d999a571254ae0c" 
+     class="btn" target="_blank">View Deal</a>
+      </div>
+
+      <div class="booking-option">
+        <span>Agoda</span>
+        <span>₱3,500.00 (Fully refundable before Jul 19, Only 1 left!)</span>
+        <a href="https://www.agoda.com/search?currency=USD&checkin=2026-07-26&checkout=2026-07-27&numberofchildren=0&mcid=332&masterroomid=300277645&mpt=YnR3T3lZV3ByaSs5QVM2VG5Mdm5kcDRLS3NCVUtOSlp6T05aL1pBc0V2SUpHelVOQ09DT3lGVlBQSko2NWtYekVrY0ZEblhaVUxTVlNBPT0&totalprice=15.90&totaltax=1.90&totalfee=1.28&totalsurcharge=0&mcur=USD&pid=38e8ab65-cf30-4ea2-acf2-5e9875f6f888&mbl=M&baserate=12.72&taxandfee=3.18&basepricedisplay=F&displaycurrency=USD&ccallout=FALSE&source=meta&hl=en&tag=hid21963912%2Cpid38e8ab65-cf30-4ea2-acf2-5e9875f6f888&n=0&adults=2&rooms=1&los=1&selectedproperty=21963912&city=180131&cid=1587490&pslc=1&ds=nWPg%2BgCAaEd1gmAa" 
+     class="btn" target="_blank">View Deal</a>
+      </div>
+    </div>
+
+    <a href="index.html" class="btn">⬅ Back to Listings</a>
+  </div>
+  
+  <div class="rating-summary">
+  <h2>Guest Ratings</h2>
+  <p>Overall: ⭐ 4.6 / 5 — Excellent (606 reviews)</p>
+  <ul>
+    <li><strong>Location:</strong> 5.0</li>
+    <li><strong>Rooms:</strong> 4.8</li>
+    <li><strong>Value:</strong> 4.5</li>
+    <li><strong>Cleanliness:</strong> 4.7</li>
+    <li><strong>Service:</strong> 4.6</li>
+    <li><strong>Sleep Quality:</strong> 4.5</li>
+  </ul>
+
+  <div class="reviews-section">
+  <h2>mga walang kwentang reviews</h2>
+
+  <div class="review">
+    <h3>Kim – Stayed March 2026</h3>
+    <p class="review-title">“Comfortable and affordable”</p>
+    <p>perfect na perfect for relaxing</p>
+  </div>
+
+  <div class="review">
+    <h3>Cassandra – Stayed March 2026</h3>
+    <p class="review-title">“Good location”</p>
+    <p>Bonding with my friends are the best</p>
+  </div>
+
+  <div class="review">
+    <h3>Kate – Stayed April 2026</h3>
+    <p class="review-title">“Quiet and relaxing”</p>
+    <p>Sarap mahiga with netflix and chill sabay roblox</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Hotel Listings | Designed with Style</p>
+  </footer>
+</body>
+</html>
