@@ -1,0 +1,183 @@
+/* General */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  
+}
+
+/* Header */
+header {
+  background: #364657;
+  color: #fff;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* Search bar */
+.search-bar {
+  background: #ecf0f1;
+  padding: 1rem;
+  text-align: center;
+}
+
+.search-bar span {
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+/* Section title */
+h2 {
+  text-align: center;
+  margin: 2rem 0 1rem;
+  color: #1a2938;
+}
+
+/* Hotels */
+.hotel-listings {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 2rem 3rem;
+}
+
+.hotel-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.hotel-card:hover {
+  transform: scale(1.05);
+}
+
+.hotel-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.hotel-info {
+  padding: 1rem;
+}
+
+.hotel-info h3 {
+  margin: 0 0 0.5rem;
+  color: #2c3e50;
+}
+
+.rating {
+  color: #f1c40f;
+  font-weight: bold;
+}
+
+.price {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.btn {
+  display: inline-block;
+  background: #27ae60;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #219150;
+}
+
+/* Footer */
+footer {
+  background: #2c3e50;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+.footer-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.feature {
+  text-align: center;
+  margin: 0 30px;
+}
+
+.feature img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 3px;
+}
+
+.feature p {
+  font-weight: 600;
+  color: #070707;
+}
+ /*booking bar yung may date search*/
+.booking-bar {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+  max-width: 600px;
+}
+
+.booking-bar form {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.booking-bar input,
+.booking-bar select {
+  padding: 10px;
+  border: 1px solid #817f7f;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.search-btn {
+  background-color: #28a745;
+  color: rgb(255, 253, 253);
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-btn:hover {
+  background-color: #218838;
+}
+ /* background pic sa taas ng header */
+.hero-banner {
+  background-image: url('hotel-pool.jpg'); 
+  background-size: cover;    
+  background-position: center; 
+  height: 150px;            
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: center;      
+  color: white;            
+  text-align: center;
+}
+
