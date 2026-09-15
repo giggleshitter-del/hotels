@@ -1,93 +1,577 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>San jose Hotels</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotels in San Jose City</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #131417;
+    --surface: #1B1D22;
+    --surface-2: #212429;
+    --border: rgba(237,238,240,0.09);
+    --text: #EDEEF0;
+    --text-dim: #9A9CA6;
+    --gold: #D4A24C;
+    --jade: #3E8E78;
+    --jade-hover: #357867;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.55;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width: 100%; display: block; }
+
+  button, input, select{ font-family: inherit; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .wrap{ max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+
+
+.flash-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.2);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 9999;
+}
+
+.flash-image.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(7);
+}
+
+.music-player {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(27, 29, 34, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 15px 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+}
+
+
+.icon-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+.icon-btn svg {
+  fill: #000; 
+}
+.icon-btn:hover {
+  transform: scale(1.1);
+}
+
+#volumeSlider {
+  width: 220px;
+  accent-color: #444; 
+  background: linear-gradient(90deg, #444, #222); 
+  height: 6px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid rgba(255,255,255,0.1); 
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.05); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
+
+ 
+ .hero{
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero img{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.35);
+    }
+
+  .hero-inner{
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding-top: 140px;
+    }
+
+    .hero-eyebrow{
+      color: var(--gold);
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+    }
+  .hero h1{
+    font-size: clamp(2rem, 4.2vw, 3rem);
+  }
+
+  .hero h1 .city{ color: var(--gold); }
+
+  .hero p{
+    margin-top: 14px;
+    color: var(--text-dim);
+    font-size: 1rem;
+    max-width: 46ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   
+  .search-bar{
+    margin: 36px auto 0;
+    max-width: 900px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 0.8fr auto;
+    gap: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  }
+
+  .search-field{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 16px;
+    border-right: 1px solid var(--border);
+    text-align: left;
+  }
+
+  .search-field:last-of-type{ border-right: none; }
+
+  .search-field label{
+    font-size: 0.72rem;
+    color: var(--text-dim);
+  }
+
+  .search-field input,
+  .search-field select{
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 0.94rem;
+    padding: 2px 0;
+  }
+
+  .search-field select{ cursor: pointer; }
+  .search-field select option{ background: var(--surface); }
+
+  .search-btn{
+    background: var(--jade);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 0 28px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .search-btn:hover{ background: var(--jade-hover); }
+
+ 
+  .section{ padding: 76px 0; }
+
+  .section-head{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 36px;
+  }
+
+  .section-head h2{ font-size: 1.5rem; }
+  .section-head .count{ color: var(--text-dim); font-size: 0.88rem; }
+
+  .hotel-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+
+  .hotel-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .hotel-card:hover{ border-color: rgba(212,162,76,0.4); transform: translateY(-3px); }
+
+  .hotel-photo{
+    aspect-ratio: 4/3;
+    position: relative;
+    background: linear-gradient(135deg, #2A2D33 0%, #1B1D22 100%);
+    overflow: hidden;
+  }
+.hotel-photo {
+  height: 200px; 
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.hotel-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+  .hotel-photo::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(115deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 26px);
+  }
+
+  .rating-pill{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(19,20,23,0.85);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 11px;
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .rating-pill svg{ width: 12px; height: 12px; fill: var(--gold); }
+
+  .hotel-body{ padding: 20px; }
+
+  .hotel-body h3{
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .hotel-meta{
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+
+  .hotel-meta .reviews{ color: var(--text-dim); }
+
+  .hotel-price{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--jade);
+    margin-bottom: 16px;
+  }
+
+  .hotel-price span{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+  }
+
+  .check-btn{
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--jade);
+    color: #fff;
+    padding: 11px 0;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+  }
+  .check-btn:hover{ background: var(--jade-hover); }
+
+ 
+  .trust{
+    border-top: 1px solid var(--border);
+    padding: 56px 0;
+  }
+
+  .trust-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+
+  .trust-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .trust-icon{
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .trust-icon svg{ width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.6; }
+
+  .trust-item h4{ font-size: 0.95rem; font-weight: 500; }
+
+
+  footer{
+    border-top: 1px solid var(--border);
+    padding: 26px 0;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 900px){
+    .search-bar{ grid-template-columns: 1fr 1fr; }
+    .search-btn{ grid-column: span 2; padding: 12px 0; }
+    .hotel-grid{ grid-template-columns: repeat(2, 1fr); }
+    .trust-grid{ grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 520px){
+    .hotel-grid{ grid-template-columns: 1fr; }
+    .search-field{ border-right: none; border-bottom: 1px solid var(--border); }
+  }
+
+</style>
 </head>
 <body>
-  <header class="hero-banner">
-    <h1>Hotels in SAN JOSE City</h1>
-  </header>
 
-  <section class="booking-bar">
-  <form>
-    <input type="text" placeholder="Destination" value="VINCE BANSOT">
-    <input type="date" value="2026-07-26">
-    <select>
-      <option>1 Guest</option>
-      <option selected>2 Guests</option>
-      <option>3 Guests</option>
-      <option>4 Guests</option>
-    </select>
-    <button type="submit" class="search-btn">Search</button>
-  </form>
-</section>
+<div class="music-player">
+  <audio id="bg-music" src="Kalapastangan.mp3" autoplay loop></audio>
 
-  <h2>Best-sellers: Top Hotels</h2>
-  <div class="hotel-listings">
-    <div class="hotel-card">
-      <img src="image1.jpg" alt="RedDoorz Plus">
-      <div class="hotel-info">
-        <h3>RedDoorz Plus</h3>
-        <p class="rating">⭐ 4.5 (35 reviews)</p>
-        <p class="price">₱1,542.05</p>
-        <a href="reddoorz.html" class="btn">Check Availability</a>
-      </div>
-    </div>
+  <button id="playPauseBtn" class="icon-btn">
+    <svg id="playIcon" viewBox="0 0 24 24" width="28" height="28" fill="#EDEEF0">
+      <path d="M8 5v14l11-7z"/>
+    </svg>
+    <svg id="pauseIcon" viewBox="0 0 24 24" width="28" height="28" fill="#EDEEF0" style="display:none;">
+      <path d="M6 5h4v14H6zM14 5h4v14h-4z"/>
+    </svg>
+  </button>
 
-    <div class="hotel-card">
-      <img src="image3.jpg" alt="Hotel Maiya">
-      <div class="hotel-info">
-        <h3>Hotel Maiya</h3>
-        <p class="rating">⭐ 4.6 (343 reviews)</p>
-        <p class="price">₱1,973.82</p>
-        <a href="Hotelmaiya.html" class="btn">Check Availability</a>
-
-      </div>
-    </div>
-
-    <div class="hotel-card">
-      <img src="image2.jpg" alt="Farmhouse Hotel and Cafe">
-      <div class="hotel-info">
-        <h3>Farmhouse Hotel and Cafe</h3>
-        <p class="rating">⭐ 4.9 (600 reviews)</p>
-        <p class="price">₱2,035.51</p>
-        <a href="Farmhouse.html" class="btn">Check Availability</a>
-      </div>
-    </div>
-
-    <div class="hotel-card">
-      <img src="image4.jpg" alt="Hotel francesko">
-      <div class="hotel-info">
-        <h3>Hotel francesko</h3>
-        <p class="rating">⭐ 4.6 (606 reviews)</p>
-        <p class="price">₱3,639.24</p>
-        <a href="francesko.html" class= "btn">Check Availability</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-banner">
-  <div class="feature">
-    <img src="wallet.jpg" alt="Best Price Guarantee">
-    <p>Best Price Guarantee</p>
-  </div>
-  <div class="feature">
-    <img src="lock.jpg" alt="Secure Booking">
-    <p>Secure Booking</p>
-  </div>
-  <div class="feature">
-    <img src="support.jpg" alt="24/7 Customer Support">
-    <p>24/7 Customer Support</p>
-  </div>
+  <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
 </div>
 
-  <footer>
-    <p>&copy; 2026 Hotel Listings | Designed with Style</p>
-  </footer>
+<script>
+  const music = document.getElementById('bg-music');
+  const playBtn = document.getElementById('playPauseBtn');
+  const playIcon = document.getElementById('playIcon');
+  const pauseIcon = document.getElementById('pauseIcon');
+  const volumeSlider = document.getElementById('volumeSlider');
+
+  playBtn.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+      playIcon.style.display = 'none';
+      pauseIcon.style.display = 'inline';
+    } else {
+      music.pause();
+      playIcon.style.display = 'inline';
+      pauseIcon.style.display = 'none';
+    }
+  });
+
+  volumeSlider.addEventListener('input', () => {
+    music.volume = volumeSlider.value;
+  });
+</script>
+
+<img src="image6.jpg" class="flash-image" id="flashImg">
+
+<script>
+  const flashImg = document.getElementById('flashImg');
+  setTimeout(() => {
+    flashImg.classList.add('show');
+    setTimeout(() => flashImg.classList.remove('show'), 500);
+  }, 5000);
+</script>
+
+<section class="hero">
+  <img src="image5.jpg" alt="San Jose City Lights">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">San Jose City, Nueva Ecija</p>
+    <h1>Hotels in <span class="city">San Jose City</span></h1>
+    <p>Compare rooms, prices, and reviews across the city's best-rated stays — booked and confirmed in minutes.</p>
+
+    <div class="search-bar">
+      <div class="search-field">
+        <label>Where</label>
+        <input type="text" placeholder="Search hotels or area">
+      </div>
+      <div class="search-field">
+        <label>Check-in</label>
+        <input type="text" value="26 / 07 / 2026">
+      </div>
+      <div class="search-field">
+        <label>Guests</label>
+        <select>
+          <option>1 Guest</option>
+          <option selected>2 Guests</option>
+          <option>3 Guests</option>
+          <option>4+ Guests</option>
+        </select>
+      </div>
+      <button class="search-btn">Search</button>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section-head">
+    <h2>Best-sellers: Top Hotels</h2>
+    <span class="count">4 of 62 stays</span>
+  </div>
+
+  <div class="hotel-grid">
+
+    <div class="hotel-card">
+      <div class="hotel-photo">
+        <img src="image1.jpg" alt="RedDoorz Plus">
+        <div class="rating-pill">
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.9 4.4 18l1.4-6.2L1 7.5l6.4-.6z"/></svg>
+          4.5
+        </div>
+      </div>
+      <div class="hotel-body">
+        <h3>RedDoorz Plus</h3>
+        <p class="hotel-meta">4.5 <span class="reviews">(35 reviews)</span></p>
+        <p class="hotel-price">₱1,542.05 <span>/ night</span></p>
+        <a href="reddoorz.html" class="check-btn">Check Availability</a>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <div class="hotel-photo">
+        <img src="image3.jpg" alt="Hotel Maiya">
+        <div class="rating-pill">
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.9 4.4 18l1.4-6.2L1 7.5l6.4-.6z"/></svg>
+          4.6
+        </div>
+      </div>
+      <div class="hotel-body">
+        <h3>Hotel Maiya</h3>
+        <p class="hotel-meta">4.6 <span class="reviews">(343 reviews)</span></p>
+        <p class="hotel-price">₱1,973.82 <span>/ night</span></p>
+        <a href="Hotelmaiya.html" class="check-btn">Check Availability</a>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <div class="hotel-photo">
+        <img src="image2.jpg" alt="Farmhouse Hotel and Cafe">
+        <div class="rating-pill">
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.9 4.4 18l1.4-6.2L1 7.5l6.4-.6z"/></svg>
+          4.9
+        </div>
+      </div>
+      <div class="hotel-body">
+        <h3>Farmhouse Hotel and Cafe</h3>
+        <p class="hotel-meta">4.9 <span class="reviews">(600 reviews)</span></p>
+        <p class="hotel-price">₱2,035.51 <span>/ night</span></p>
+        <a href="Farmhouse.html" class="check-btn">Check Availability</a>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <div class="hotel-photo">
+        <img src="image4.jpg" alt="Hotel Francesko">
+        <div class="rating-pill">
+          <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.2L10 14.9 4.4 18l1.4-6.2L1 7.5l6.4-.6z"/></svg>
+          4.6
+        </div>
+      </div>
+      <div class="hotel-body">
+        <h3>Hotel francesko</h3>
+        <p class="hotel-meta">4.6 <span class="reviews">(606 reviews)</span></p>
+        <p class="hotel-price">₱3,639.24 <span>/ night</span></p>
+        <a href="Francesko.html" class="check-btn">Check Availability</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="trust wrap">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <h4>Best Price Guarantee</h4>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+      </div>
+      <h4>Secure Booking</h4>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+      </div>
+      <h4>24/7 Customer Support</h4>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Hotel Listings — Designed by Vince & Fionn
+</footer>
+
 </body>
 </html>
-
