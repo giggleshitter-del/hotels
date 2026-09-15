@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel maiya</title>
+  <title>Hotel Maiya</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f8f9fa;
+      background:
+        radial-gradient(ellipse 700px 320px at 20% -10%, rgba(212,162,76,0.14), transparent),
+        radial-gradient(ellipse 600px 300px at 90% 10%, rgba(62,142,120,0.14), transparent),
+        linear-gradient(180deg, #191B20 0%, #131417 100%);
       margin: 0;
       padding: 0;
+      color: #EDEEF0;
     }
 
     header {
-      background: #2c3e50;
+      background:
+        radial-gradient(ellipse 700px 320px at 20% -10%, rgba(212,162,76,0.14), transparent),
+        radial-gradient(ellipse 600px 300px at 90% 10%, rgba(62,142,120,0.14), transparent),
+        linear-gradient(180deg, #191B20 0%, #131417 100%);
       color: #fff;
       padding: 1.5rem;
       text-align: center;
+      border-bottom: 1px solid rgba(237,238,240,0.09);
     }
 
     .hotel-banner {
@@ -29,25 +37,27 @@
     .hotel-banner img {
       width: 100%;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
 
     .hotel-details {
       max-width: 800px;
       margin: 2rem auto;
-      background: #fff;
+      background: #1B1D22;
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      color: #EDEEF0;
     }
 
     .hotel-details h1 {
       margin-bottom: 0.5rem;
-      color: #2c3e50;
+      color: #D4A24C;
     }
 
     .hotel-details p {
       margin: 0.5rem 0;
+      color: #9A9CA6;
     }
 
     .booking-section {
@@ -58,14 +68,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #ecf0f1;
+      background: #212429;
       padding: 1rem;
       border-radius: 8px;
       margin-bottom: 1rem;
+      border: 1px solid rgba(237,238,240,0.09);
     }
 
     .btn {
-      background: #27ae60;
+      background: #3E8E78;
       color: #fff;
       padding: 8px 12px;
       border-radius: 5px;
@@ -74,28 +85,33 @@
     }
 
     .btn:hover {
-      background: #219150;
+      background: #357867;
     }
 
     footer {
-      background: #2c3e50;
-      color: #fff;
+      background:
+        radial-gradient(ellipse 700px 320px at 20% -10%, rgba(212,162,76,0.14), transparent),
+        radial-gradient(ellipse 600px 300px at 90% 10%, rgba(62,142,120,0.14), transparent),
+        linear-gradient(180deg, #191B20 0%, #131417 100%);
+      color: #9A9CA6;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
+      border-top: 1px solid rgba(237,238,240,0.09);
     }
   
-    .rating-summary {
+    .rating-summary, .reviews-section {
       max-width: 800px;
       margin: 2rem auto;
-      background: #fff;
+      background: #1B1D22;
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      color: #EDEEF0;
     }
 
-    .rating-summary h2 {
-      color: #2c3e50;
+    .rating-summary h2, .reviews-section h2 {
+      color: #D4A24C;
       margin-bottom: 1rem;
     }
 
@@ -107,6 +123,112 @@
     .rating-summary li {
       margin: 0.5rem 0;
       font-size: 1rem;
+      color: #9A9CA6;
+    }
+
+    .review {
+      border-bottom: 1px solid rgba(237,238,240,0.09);
+      padding: 1rem 0;
+    }
+
+    .review:last-child {
+      border-bottom: none;
+    }
+
+    .review h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #EDEEF0;
+    }
+
+    .review-title {
+      font-weight: bold;
+      margin: 0.5rem 0;
+      color: #3E8E78;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hotel Maiya</h1>
+  </header>
+
+  <div class="hotel-banner">
+    <img src="image3.jpg" alt="Hotel Maiya Room">
+  </div>
+
+  <div class="hotel-details">
+    <h1>Hotel Maiya</h1>
+    <p>⭐ 4.0 (2 reviews)</p>
+    <p>#1 of 1 Specialty lodging in San Jose</p>
+    <p>📍 Location: San Jose City</p>
+    <p>Cozy rooms with modern amenities, perfect for a relaxing stay.</p>
+
+    <div class="booking-section">
+      <h2>View prices for your travel dates</h2>
+      <p>Check In: Jul 26 | Check Out: Jul 27 | 1 Room, 2 Guests</p>
+
+      <div class="booking-option">
+        <span>Booking.com</span>
+        <span>₱2,036.88 (Fully refundable before Jul 18)</span>
+        <a href="https://www.booking.com" class="btn" target="_blank">View Deal</a>
+      </div>
+
+      <div class="booking-option">
+        <span>Agoda</span>
+        <span>₱1,851.70 (Fully refundable before Jul 19, Only 1 left!)</span>
+        <a href="https://www.agoda.com" class="btn" target="_blank">View Deal</a>
+      </div>
+    </div>
+
+    <a href="index.html" class="btn">⬅ Back to Listings</a>
+  </div>
+
+  <div class="rating-summary">
+    <h2>Guest Ratings</h2>
+    <p>Overall: ⭐ 4.0 / 5 — Good (2 reviews)</p>
+    <p>#1 of 1 Specialty lodging in San Jose</p>
+    <ul>
+      <li><strong>Location:</strong> 5.0</li>
+      <li><strong>Rooms:</strong> 5.0</li>
+      <li><strong>Value:</strong> 4.0</li>
+      <li><strong>Cleanliness:</strong> 5.0</li>
+      <li><strong>Service:</strong> 3.0</li>
+      <li><strong>Sleep Quality:</strong> 4.0</li>
+    </ul>
+  </div>
+
+  <div class="reviews-section">
+    <h2>Mga Reviews</h2>
+
+    <div class="review">
+      <h3>Jeremy – Stayed April 2026</h3>
+      <p class="review-title">“Comfortable and affordable”</p>
+      <p>Grabe sobrang linis sarap matulog</p>
+    </div>
+
+    <div class="review">
+      <h3>Paulo Bandagosa – Stayed March 2026</h3>
+      <p class="review-title">“Good location”</p>
+      <p>Smooth ng kama erp</p>
+    </div>
+
+    <div class="review">
+      <h3>Pikachu – Stayed April 2026</h3>
+      <p class="review-title">“Quiet and relaxing”</p>
+      <p>Thunder bolt ko naging thunder bold</p>
+    </div>
+
+    <div class="review">
+      <h3>Hetty - Stayed July 2026</h3>
+      <p class="review-title">"Refreshing"</p>
+      <p>Grabe bumayo si Jollibee bida nag saya</p>
+    </div>
+
+    <div class="review">
+      <h3>Jonathan Eric Padilpat - Stayed July 2026</h3>
+      <p class="review-title">"Refreshing"</p>
+      <p>Solid ka erppp      font-size: 1rem;
     }
 
     .reviews-section {
