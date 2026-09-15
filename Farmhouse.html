@@ -4,20 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Farmhouse Hotel and Café</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f8f9fa;
+      background:
+        radial-gradient(ellipse 700px 320px at 20% -10%, rgba(212,162,76,0.14), transparent),
+        radial-gradient(ellipse 600px 300px at 90% 10%, rgba(62,142,120,0.14), transparent),
+        linear-gradient(180deg, #191B20 0%, #131417 100%);
       margin: 0;
       padding: 0;
+      color: #EDEEF0;
     }
 
-    header {
-      background: #2c3e50;
+    header, footer {
+      background:
+        radial-gradient(ellipse 700px 320px at 20% -10%, rgba(212,162,76,0.14), transparent),
+        radial-gradient(ellipse 600px 300px at 90% 10%, rgba(62,142,120,0.14), transparent),
+        linear-gradient(180deg, #191B20 0%, #131417 100%);
       color: #fff;
-      padding: 1.5rem;
       text-align: center;
+      padding: 1.5rem;
     }
 
     .hotel-banner {
@@ -29,83 +35,88 @@
     .hotel-banner img {
       width: 100%;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
 
-    .hotel-details {
+    .hotel-details, .rating-summary, .reviews-section {
       max-width: 800px;
       margin: 2rem auto;
-      background: #fff;
+      background: #1B1D22;
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      color: #EDEEF0;
     }
 
-    .hotel-details h1 {
-      margin-bottom: 0.5rem;
-      color: #2c3e50;
+    .hotel-details h1, .rating-summary h2, .reviews-section h2 {
+      color: #D4A24C;
     }
 
-    .hotel-details p {
-      margin: 0.5rem 0;
-    }
+    .hotel-details p { color: #9A9CA6; }
 
-    .booking-section {
-      margin-top: 2rem;
-    }
-
-    .booking-option {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #ecf0f1;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
+    .review-title { color: #3E8E78; font-weight: bold; }
 
     .btn {
-      background: #27ae60;
+      background: #3E8E78;
       color: #fff;
       padding: 8px 12px;
       border-radius: 5px;
       text-decoration: none;
       transition: background 0.3s ease;
     }
+    .btn:hover { background: #357867; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Farmhouse Hotel and Café</h1>
+  </header>
 
-    .btn:hover {
-      background: #219150;
-    }
+  <div class="hotel-banner">
+    <img src="image2.jpg" alt="Farmhouse Hotel Room">
+  </div>
 
-    footer {
-      background: #2c3e50;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-  
-    .rating-summary {
-      max-width: 800px;
-      margin: 2rem auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+  <div class="hotel-details">
+    <h1>Farmhouse Hotel and Café</h1>
+    <p>⭐ 4.9 (600 reviews)</p>
+    <p>📍 Location: San Jose City</p>
+    <p>Rustic charm meets modern comfort — enjoy cozy rooms and a café experience right at your stay.</p>
+    <a href="index.html" class="btn">⬅ Back to Listings</a>
+  </div>
 
-    .rating-summary h2 {
-      color: #2c3e50;
-      margin-bottom: 1rem;
-    }
+  <div class="rating-summary">
+    <h2>Guest Ratings</h2>
+    <p>Overall: ⭐ 4.9 / 5 — Excellent (600 reviews)</p>
+    <ul>
+      <li><strong>Location:</strong> 5.0</li>
+      <li><strong>Rooms:</strong> 4.9</li>
+      <li><strong>Value:</strong> 4.8</li>
+      <li><strong>Cleanliness:</strong> 5.0</li>
+      <li><strong>Service:</strong> 4.7</li>
+      <li><strong>Sleep Quality:</strong> 4.8</li>
+    </ul>
+  </div>
 
-    .rating-summary ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .rating-summary li {
-      margin: 0.5rem 0;
+  <div class="reviews-section">
+    <h2>Mga Reviews</h2>
+    <div class="review">
+      <h3>Vince – December 2026</h3>
+      <p class="review-title">“Comfortable and affordable”</p>
+      <p>Chill chill lang, 10/10</p>
+    </div>
+    <div class="review">
+      <h3>Paulo – September 2026</h3>
+      <p class="review-title">“Good location”</p>
+      <p>Higaan ko lahat ng hotel nyo</p>
+    </div>
+    <div class="review">
+      <h3>Stephanie – June 2026</h3>
+      <p class="review-title">“Quiet and relaxing”</p>
+      <p>Sarap matulog, Netflix to the max</p>
+    </div>
+  </div>
+</body>
+</html>
       font-size: 1rem;
     }
 
